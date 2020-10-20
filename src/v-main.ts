@@ -22,7 +22,7 @@ class MainView extends BaseHTMLElement { // extends native HTMLElement
 		`);
 
 		const [createUserDialog] = append(document.body, `		
-			<dg-dialog class="dg-project-create">
+			<dg-dialog modal class="dg-project-create">
 				<div slot="title">Create Project</div>			
 				<div class="content">
 					<input placeholder="name" name="name"> 

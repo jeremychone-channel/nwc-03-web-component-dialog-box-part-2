@@ -3,11 +3,18 @@ import { adoptStyleSheets, BaseHTMLElement, css, customElement, html, OnEvent, o
 
 const _shadowCss = css`
 	:host{
+		pointer-events: none;
 		position: absolute;
 		top: 0; right: 0; bottom: 0; left: 0;
 	}
 
+	:host([modal]){	
+		pointer-events: auto;
+		background: rgba(0,0,0,.2);
+	}
+
 	.dialog{
+		pointer-events: auto;
 		position: absolute;
 		top: 10rem; 
 		left: calc(50% - 11rem);
