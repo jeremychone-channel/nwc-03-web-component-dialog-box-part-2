@@ -1,9 +1,18 @@
-import { customElement, html } from 'dom-native';
+import { customElement, html, onEvent, pull, trigger } from 'dom-native';
 import { DialogComponent } from './dg-dialog';
 
 
 @customElement('dg-project-create')
 export class ProjectCreateDialog extends DialogComponent {
+
+	@onEvent('pointerup', '[name="ok"]')
+	onOkClick(evt: PointerEvent) {
+		// get the data from ui elements
+		const detail: any = pull(this, 'input, textarea');
+
+		// trigger custom component event
+		trigger(this, 'PROJECT_CREATE', { detail });
+	}
 
 	init() {
 		this.append(html`

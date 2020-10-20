@@ -26,6 +26,22 @@ class MainView extends BaseHTMLElement { // extends native HTMLElement
 		`) as [DialogComponent];
 
 		createUserDialog.dialogEl.style.top = 'calc(50% + 5rem)';
+
+		createUserDialog.addEventListener('PROJECT_CREATE', (evt) => {
+			const { name, description } = (<CustomEvent>evt).detail;
+
+			createUserDialog.remove();
+
+			document.body.querySelector('.hello-box')?.remove();
+
+			this.append(html`
+				<div class="hello-box">Project Created <br>
+				   <strong>${name}</strong> <br> 
+					 ${description}
+				</div>
+			`);
+		});
+
 	}
 
 }
