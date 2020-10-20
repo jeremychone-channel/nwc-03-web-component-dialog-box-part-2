@@ -1,0 +1,59 @@
+{
+  "name": "s01e02-web-component-dialog-box-part-1",
+  "version": "0.0.1",
+  "description": "Jeremy Chone Dev Channel",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jeremychone-channel/s01e02-web-component-dialog-box-part-1.git"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@dom-native/draggable": "^0.1.1",
+    "dom-native": "^0.9.14",
+    "utils-min": "^0.1.16"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-multi-entry": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@types/lodash.debounce": "^4.0.6",
+    "autoprefixer": "^9.8.6",
+    "chokidar": "^3.4.3",
+    "cmdrouter": "^0.3.1",
+    "fs-extra-plus": "^0.5.19",
+    "livereload": "^0.9.1",
+    "lodash.debounce": "^4.0.8",
+    "p-spawn": "^0.5.5",
+    "postcss": "^7.0.35",
+    "postcss-cli": "^7.1.2",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.3",
+    "rollup": "^2.32.0",
+    "rollup-plugin-css-only": "^2.1.0",
+    "rollup-plugin-typescript2": "^0.27.3",
+    "sketchdev": "^0.6.5",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3",
+    "webhere": "^1.1.0"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "pcss/"
+  ],
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "TS_NODE_FILES=true ./node_modules/.bin/ts-node --project scripts/tsconfig.json scripts/cmds.ts build",
+    "build-js": "./node_modules/.bin/rollup -c",
+    "build-css": "./node_modules/.bin/postcss -o dist/app-bundle.css pcss/main.pcss  --verbose",
+    "sketchdev": "./node_modules/.bin/sketchdev",
+    "webhere": "./node_modules/.bin/webhere -p 8888 -s",
+    "watch": "TS_NODE_FILES=true ./node_modules/.bin/ts-node --project scripts/tsconfig.json scripts/cmds.ts watch"
+  },
+  "engines": {
+    "node": ">=8.2.0"
+  },
+  "author": "Jeremy Chone <jeremy.chone@gmail.com> (http://jeremychone.com)",
+  "license": "MIT"
+}
