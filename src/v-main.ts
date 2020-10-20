@@ -22,7 +22,7 @@ class MainView extends BaseHTMLElement { // extends native HTMLElement
 		`);
 
 		const [createUserDialog] = append(document.body, `		
-			<dg-project-create modal></dg-project-create>
+			<dg-project-create></dg-project-create>
 		`) as [DialogComponent];
 
 		createUserDialog.dialogEl.style.top = 'calc(50% + 5rem)';

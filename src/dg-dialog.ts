@@ -29,6 +29,7 @@ const _shadowCss = css`
 
 
 	header{
+		touch-action: none;
 		display: grid;
 		grid-template-columns: 1fr 2rem;
 		align-items: center;
@@ -72,7 +73,7 @@ export class DialogComponent extends BaseHTMLElement { // extends HTMLElement
 	@onEvent('pointerdown', 'header, [slot="title"]')
 	onHeaderForDrag(evt: PointerEvent & OnEvent) {
 		if (evt.target.closest('.do-cancel') != null) return; // exclude the .do-close from being draggable
-		activateDrag(this.dialogEl, evt);
+		activateDrag(this.dialogEl, evt, { pointerCapture: document.body });
 	}
 
 	@onEvent('pointerup', '.do-cancel')
