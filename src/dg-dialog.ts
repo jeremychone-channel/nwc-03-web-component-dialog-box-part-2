@@ -1,5 +1,5 @@
 import { activateDrag } from '@dom-native/draggable';
-import { adoptStyleSheets, BaseHTMLElement, css, customElement, html, onEvent } from 'dom-native';
+import { adoptStyleSheets, BaseHTMLElement, css, customElement, html, OnEvent, onEvent } from 'dom-native';
 
 const _shadowCss = css`
 	:host{
@@ -63,9 +63,17 @@ export class DialogComponent extends BaseHTMLElement { // extends HTMLElement
 	get dialogEl() { return this.shadowRoot!.firstElementChild as HTMLElement }
 
 	@onEvent('pointerdown', 'header, [slot="title"]')
-	onHeaderForDrag(evt: PointerEvent) {
+	onHeaderForDrag(evt: PointerEvent & OnEvent) {
+		if (evt.target.closest('.do-cancel') != null) return; // exclude the .do-close from being draggable
 		activateDrag(this.dialogEl, evt);
 	}
+
+	@onEvent('pointerup', '.do-cancel')
+	onCancelClick(evt: PointerEvent) {
+		this.dispatchEvent(new CustomEvent('CANCEL', { bubbles: true, cancelable: true }));
+		this.remove();
+	}
+
 
 	constructor() {
 		super();
@@ -74,7 +82,7 @@ export class DialogComponent extends BaseHTMLElement { // extends HTMLElement
 			<div class="dialog" part="dialog">
 				<header>
 					<span class="title"><slot name= "title"></slot></span>
-					<c-ico href="#ico-close"></c-ico>
+					<c-ico class="do-cancel" href="#ico-close"></c-ico>
 				</header>
 				<section>
 					<slot></slot>
