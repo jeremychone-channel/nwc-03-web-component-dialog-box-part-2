@@ -1,4 +1,5 @@
-import { BaseHTMLElement, customElement, first, html, onEvent } from 'dom-native';
+import { append, BaseHTMLElement, customElement, first, html, onEvent } from 'dom-native';
+import { DialogComponent } from './dg-dialog';
 
 @customElement('v-main') // same as customElements.define('v-main', IcoElement) 
 class MainView extends BaseHTMLElement { // extends native HTMLElement
@@ -20,6 +21,19 @@ class MainView extends BaseHTMLElement { // extends native HTMLElement
       </dg-dialog>
 		`);
 
+		const [createUserDialog] = append(document.body, `		
+			<dg-dialog class="dg-project-create">
+				<div slot="title">Create Project</div>			
+				<div class="content">
+					<input placeholder="name" name="name"> 
+					<textarea placeholder="description" name="description"></textarea>
+				</div>
+				<button slot="buttons" class="do-cancel" name="cancel">CANCEL</div>
+				<button slot="buttons" name="ok">CREATE</div>
+			</dg-dialog>	
+		`) as [DialogComponent];
+
+		createUserDialog.dialogEl.style.top = 'calc(50% + 5rem)';
 	}
 
 }
