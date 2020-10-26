@@ -1,26 +1,26 @@
 
-## Dialog Box with Web Component - Part 1 - Composition (bonus: Draggable)
+## Dialog Box with Native Web Component - Part 2 - (bonus: multi-touch drag)
 
-- [Youtube Episode: S01E02](https://www.youtube.com/watch?v=pdrpeF0P7gY) (thumb up appreciated)
+- [Youtube Episode: S01E04](https://www.youtube.com/watch?v=e3Z1SXH_pOw) (thumb up appreciated)
 
+This part 2 of building a Dialog Box with native Web Component. We will be using  HTML, CSS, JavaScript, with TypeScript and postcss, and learning about web component specialization with class inheritance. 
 
-This code will show how to create a composable Dialog Box with a web component. Will be using  HTML, CSS, JavaScript, and learning about  Slot, CSS Parts, and ShadowDOM. 
+As a bonus, we will add multi-touch drag for mobile devices.
 
-As a bonus, we will make it draggable with a couple of lines of code.
+- [Jeremy Chone Dev Channel](https://www.youtube.com/jeremychone/)
 
-- [Jeremy Chone Dev Channel](https://www.youtube.com/jeremychone/) (subscribe welcome)
+> Note: Each step [in the youtube episode](https://www.youtube.com/watch?v=e3Z1SXH_pOw) matches a git commit and tag. There might be more commits afterward for code upgrade.
 
-> Note: Each step [in the youtube episode](https://www.youtube.com/watch?v=pdrpeF0P7gY) matches a git commit and tag. There might be more commits afterward for code upgrade.
-
+[Part 1 github link](https://github.com/jeremychone-channel/s01e02-web-component-dialog-box-part-1), [Part 1 Youtube Episode](https://www.youtube.com/watch?v=pdrpeF0P7gY)
 
 ## Install & Run
 
 ```sh
 # Clone the base code to your folder
-git clone git@github.com:jeremchone-channel/s01e02-web-component-dialog-box-part-1.git  dialog-box-part1/
+git clone git@github.com:jeremchone-channel/s01e04-web-component-dialog-box-part-2.git  dialog-box-part-2/
 
 
-cd dialog-box-part1/
+cd dialog-box-part-2/
 
 # make it yours
 rm -Rf .git
@@ -40,7 +40,7 @@ After `npm run watch` for **live coding**:
 
 - `pcss/main.pcss` and its imports gets recompiled as `dist/app-bundle.pcss`
 - `src/**/*.ts ` files get re-compiled as `dist/app-bundle.js`
-- `design.sketch` if present and if has sketch installed, generates `svg/sprite.svg` and `pcss.var-colors.pcss`
+- `design.sketch` if present and sketch installed, generates `svg/sprite.svg` and `pcss/var-colors.pcss`
 
 
 ## Approach 
